@@ -32,7 +32,11 @@ export default class SearchInput extends Component {
   componentWillMount() {
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }
-
+  componentDidMount() {
+      if (this.state.inputFocus && this.input) {
+          this.input.focus()
+      }
+  }
   componentWillUnmount() {
     this.keyboardDidHideListener.remove();
   }
